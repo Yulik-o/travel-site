@@ -1,0 +1,302 @@
+@import "./reset";
+
+$white-text-color: rgba(255, 255, 255, 1);
+$accent-color: rgba(83, 115, 253, 1);
+
+@mixin josefin-sans-font-light {
+  font-family: "Josefin Sans";
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 28px;
+  letter-spacing: 1.6px;
+}
+@mixin button {
+  background-color: $accent-color;
+  color: $white-text-color;
+  font-family: "Aleo";
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 1.12px;
+  text-transform: uppercase;
+  border: none;
+  padding: 20px 57px 20px 56px;
+  transition: all 0.5s ease;
+}
+body {
+  color: $white-text-color;
+  @include josefin-sans-font-light();
+}
+.container {
+  max-width: 1320px;
+  width: 95%;
+  margin: 0 auto;
+  text-align: center;
+  @media screen and(max-width: 767px) {
+    max-width: 740px;
+  }
+  @media screen and(max-width: 1023px) {
+    max-width: 990px;
+  }
+}
+
+// HERO SECTION
+.hero {
+  background-image: url(../img/Hero-background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  padding-top: 295px;
+  padding-bottom: 120px;
+  @media screen and(max-width: 767px) {
+    background-image: url(../img/hero-background-mob.jpg);
+    padding-top: 195px;
+    padding-bottom: 80px;
+  }
+  @media screen and(max-width: 1023px) {
+    background-image: url(../img/hero-background-tab.jpg);
+    padding-top: 195px;
+    padding-bottom: 80px;
+  }
+}
+.logo {
+  font-family: "Josefin Sans";
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+}
+.hero .logo {
+  font-size: 48px;
+  line-height: 52px;
+  margin-bottom: 8px;
+}
+.hero_text {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 6.82px;
+  margin-bottom: 48px;
+}
+.hero_form {
+  position: relative;
+  margin-bottom: 211px;
+}
+input[placeholder="Search Your Travel Destination"] {
+  color: #999;
+  font-family: "Josefin Sans";
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 2.8px;
+  @media screen and(max-width: 645px) {
+    font-size: 0;
+  }
+}
+.search_input {
+  width: 647px;
+  outline: none;
+  border: none;
+  background-color: $white-text-color;
+  padding: 20px 334px 20px 36px;
+  transition: all 0.3s ease;
+  @media screen and(max-width: 400px) {
+    width: 320px;
+    padding: 20px 15px;
+  }
+  @media screen and(max-width: 645px) {
+    width: 380px;
+    padding: 20px 15px;
+  }
+  @media screen and(max-width: 767px) {
+    max-width: 600px;
+  }
+}
+.search_input:hover,
+.search_input:focus {
+  outline: 3px solid $accent-color;
+}
+.hero_button {
+  @include button();
+  font-size: 14px;
+  letter-spacing: 1.4px;
+  padding: 16px 24px 16px 52px;
+
+  position: absolute;
+  transform: translateX(-102%) translateY(8%);
+}
+.hero_button:hover {
+  background-color: rgb(62, 43, 183);
+}
+.hero_search_svg {
+  width: 16px;
+  height: 16px;
+  fill: $white-text-color;
+  margin-right: 12px;
+  position: absolute;
+  top: 18px;
+  left: 24px;
+}
+.scroll_text {
+  font-family: "Josefin Sans";
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 2.8px;
+  margin-bottom: 4px;
+}
+.scroll_down_tick {
+  width: 14px;
+  height: 16px;
+  fill: $white-text-color;
+}
+.scroll_down_tick:hover {
+  fill: $accent-color;
+}
+.scroll_button {
+  border: no-repeat;
+  background-color: transparent;
+}
+
+// HEADER SECTION
+.header {
+  background-color: $accent-color;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+.header_wrapper,
+.header_list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.header_list {
+  gap: 40px;
+}
+.header_link {
+  font-family: "Aleo";
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  transition: all 0.5s ease;
+}
+.header_link:hover {
+  font-size: 18px;
+}
+
+// WHY SECTION
+.why_section {
+  background-image: url(../img/why-background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 120px;
+  padding-bottom: 180px;
+  @media screen and (max-width: 1250px) {
+    padding-bottom: 60px;
+  }
+}
+.why_section_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 136px;
+  @media screen and (max-width: 1250px) {
+    flex-direction: column;
+    gap: 80px;
+  }
+}
+.why_content {
+  max-width: 648px;
+  text-align: left;
+}
+.button_why_wrapper {
+  @media screen and (max-width: 1250px) {
+    text-align: center;
+    margin-top: 45px;
+  }
+}
+.why_text {
+  margin-bottom: 1em;
+}
+.section_title {
+  font-family: "Aleo";
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 40px;
+  text-transform: capitalize;
+}
+.why_section .section_title {
+  margin-bottom: 24px;
+}
+.button_why {
+  @include button();
+  margin-top: 32px;
+  padding: 20px 32px;
+}
+.button_why:hover {
+  background-color: rgb(62, 43, 183);
+}
+.why_img {
+  width: 350px;
+  @media screen and (max-width: 360px) {
+    width: 320px;
+  }
+}
+
+.why_photo_wrapper > .why_img {
+  margin-bottom: 16px;
+  @media screen and (max-width: 1250px) {
+    margin-bottom: 76px;
+  }
+}
+.why_right_img {
+  transform: translate(20%);
+  @media screen and (max-width: 1250px) {
+    transform: none;
+  }
+}
+
+// ENJOY SECTION
+.enjoy_section {
+  background-color: rgba(51, 51, 51, 1);
+  padding-top: 123px;
+  padding-bottom: 180px;
+  border: none;
+  @media screen and (max-width: 1250px) {
+    padding-bottom: 59px;
+  }
+}
+.enjoy_section .section_title {
+  text-align: center;
+}
+.enjoy_flex {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  position: relative;
+}
+.enjoy_svg_wrapper {
+  width: 424px;
+
+  text-align: center;
+}
+.enjoy_svg_bg {
+  width: 70px;
+  height: 70px;
+  background-color: rgba(51, 51, 51, 1);
+  margin: 0 auto;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+.enjoy_svg {
+  width: 64px;
+  height: 64px;
+}
+
+.enjoy_fly_svg {
+  position: absolute;
+  width: 872px;
+  top: -120px;
+  right: 220px;
+  z-index: 0;
+}
