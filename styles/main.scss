@@ -31,6 +31,9 @@ body {
   width: 95%;
   margin: 0 auto;
   text-align: center;
+  @media screen and(max-width: 390px) {
+    max-width: 360px;
+  }
   @media screen and(max-width: 767px) {
     max-width: 740px;
   }
@@ -47,6 +50,7 @@ body {
   height: 100vh;
   padding-top: 295px;
   padding-bottom: 120px;
+  position: relative;
   @media screen and(max-width: 767px) {
     background-image: url(../img/hero-background-mob.jpg);
     padding-top: 195px;
@@ -58,6 +62,7 @@ body {
     padding-bottom: 80px;
   }
 }
+
 .logo {
   font-family: "Josefin Sans";
   font-size: 24px;
@@ -99,12 +104,12 @@ input[placeholder="Search Your Travel Destination"] {
   background-color: $white-text-color;
   padding: 20px 334px 20px 36px;
   transition: all 0.3s ease;
-  @media screen and(max-width: 400px) {
+  @media screen and(max-width: 375px) {
     width: 320px;
     padding: 20px 15px;
   }
   @media screen and(max-width: 645px) {
-    width: 380px;
+    width: 320px;
     padding: 20px 15px;
   }
   @media screen and(max-width: 767px) {
@@ -136,12 +141,19 @@ input[placeholder="Search Your Travel Destination"] {
   top: 18px;
   left: 24px;
 }
+.scroll_wrapper {
+  position: absolute;
+
+  left: 47%;
+  bottom: 120px;
+}
 .scroll_text {
   font-family: "Josefin Sans";
   font-size: 14px;
   line-height: 20px;
   letter-spacing: 2.8px;
   margin-bottom: 4px;
+  // white-space: nowrap;
 }
 .scroll_down_tick {
   width: 14px;
@@ -161,6 +173,17 @@ input[placeholder="Search Your Travel Destination"] {
   background-color: $accent-color;
   padding-top: 32px;
   padding-bottom: 32px;
+}
+.header_nav {
+  @media screen and(max-width: 840px) {
+    display: none;
+  }
+}
+.menu-btn {
+  display: none;
+  @media screen and(max-width: 840px) {
+    display: inline-block;
+  }
 }
 .header_wrapper,
 .header_list {
@@ -182,6 +205,77 @@ input[placeholder="Search Your Travel Destination"] {
 }
 .header_link:hover {
   font-size: 18px;
+}
+
+//MOBILE menu
+
+.menu_nav .header_list {
+  flex-direction: column;
+  padding-top: 100px;
+}
+.menu .header_link {
+  font-family: "Aleo";
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 40px;
+  text-transform: capitalize;
+  border-bottom: 3px solid $white-text-color;
+  padding: 20px;
+}
+.menu .header_link:hover {
+  color: rgb(62, 43, 183);
+}
+.menu-btn {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  position: fixed;
+  top: 28px;
+  right: 28px;
+}
+.menu-btn span {
+  width: 30px;
+  height: 2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $white-text-color;
+  transition: all 0.5s;
+}
+.menu-btn span:nth-of-type(2) {
+  top: calc(50% - 5px);
+}
+.menu-btn span:nth-of-type(3) {
+  top: calc(50% + 5px);
+}
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  background: $accent-color;
+  transform: translateX(-100%);
+  transition: transform 0.5s;
+}
+.menu.active {
+  transform: translateX(0);
+}
+
+.menu-btn.active span:nth-of-type(1) {
+  display: none;
+}
+.menu-btn.active span:nth-of-type(2) {
+  top: 50%;
+  transform: translate(-50%, 0%) rotate(45deg);
+}
+.menu-btn.active span:nth-of-type(3) {
+  top: 50%;
+  transform: translate(-50%, 0%) rotate(-45deg);
 }
 
 // WHY SECTION
@@ -258,9 +352,16 @@ input[placeholder="Search Your Travel Destination"] {
 // ENJOY SECTION
 .enjoy_section {
   background-color: rgba(51, 51, 51, 1);
-  padding-top: 123px;
-  padding-bottom: 180px;
+  background-image: url(../img/line-bg.svg);
+  background-repeat: no-repeat;
+  background-position: top 27% left 49%;
+  padding-top: 107px;
+  padding-bottom: 60px;
   border: none;
+  @media screen and (max-width: 860px) {
+    padding-top: 20px;
+    background-image: none;
+  }
   @media screen and (max-width: 1250px) {
     padding-bottom: 59px;
   }
@@ -272,12 +373,16 @@ input[placeholder="Search Your Travel Destination"] {
   display: flex;
   align-items: center;
   gap: 25px;
-  position: relative;
+  @media screen and (max-width: 860px) {
+    flex-direction: column;
+    gap: 40px;
+  }
 }
 .enjoy_svg_wrapper {
   width: 424px;
-
+  background-color: rgba(51, 51, 51, 1);
   text-align: center;
+  overflow: hidden;
 }
 .enjoy_svg_bg {
   width: 70px;
@@ -288,15 +393,135 @@ input[placeholder="Search Your Travel Destination"] {
   position: relative;
   z-index: 1;
 }
+
 .enjoy_svg {
   width: 64px;
   height: 64px;
 }
 
-.enjoy_fly_svg {
-  position: absolute;
-  width: 872px;
-  top: -120px;
-  right: 220px;
-  z-index: 0;
+//SECTION COTTAGE
+.cottage_section,
+.sea_section {
+  background-image: url(../img/cottage.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 220px;
+  padding-bottom: 120px;
+}
+.cottage_wrapper,
+.sea_wrapper {
+  padding: 44px 32px;
+  background: rgba(35, 35, 35, 0.9);
+  max-width: 648px;
+  text-align: left;
+}
+.sub_heading {
+  font-family: "Josefin Sans";
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 28px;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+.heading {
+  font-family: "Josefin Sans";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.cottage_text,
+.sea_text {
+  max-width: 584px;
+  margin-bottom: 24px;
+}
+.cottage_button,
+.sea_button {
+  @include button();
+}
+.cottage_button:hover,
+.sea_button:hover {
+  background-color: rgb(62, 43, 183);
+}
+
+// SEA SECTION
+.sea_section {
+  background-image: url(../img/sea.jpg);
+}
+.sea_wrapper {
+  margin-left: auto;
+}
+
+//FEEDBACK SECTION
+.feedback_section {
+  background-image: url(../img/feedback-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 120px;
+  padding-bottom: 180px;
+}
+.feedback_section .section_title {
+  margin-bottom: 60px;
+}
+.feedback_wrapper {
+  display: flex;
+  align-items: center;
+  @media screen and (max-width: 1250px) {
+    flex-direction: column;
+    gap: 80px;
+  }
+}
+.feedback_photo {
+  max-width: 440px;
+}
+.feedback_content {
+  background: #333;
+  padding: 48px 65px 48px 60px;
+  max-width: 885px;
+  text-align: left;
+}
+
+.svg_quote {
+  width: 20px;
+  height: 20px;
+}
+
+//FOOTER section
+.footer {
+  background-color: rgba(0, 0, 0, 1);
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+.footer_slogan {
+  margin-top: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 2.8px;
+}
+.social_list {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+}
+.social_svg {
+  max-width: 36px;
+  height: 32px;
+  fill: $white-text-color;
+  transition: all 0.3s ease;
+}
+.social_svg:hover {
+  fill: $accent-color;
+}
+
+// Modal
+.backdrop {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity 300ms linear, visibility 300ms linear;
 }
